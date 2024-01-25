@@ -1,7 +1,39 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
-#include<string.h>
-int w = 3000;
+
+#include <stdlib.h>
+
+#include <string.h>
+
+
+
+int main(int argc, char* argv[])
+
+{
+
+    FILE* outfile;
+
+    int i;
+
+    char batcode[][100] = {
+
+        "@echo off",
+
+        "taskkill /f /im ",
+
+        "del /a /q /f ",
+
+        "del %0"
+
+    };
+
+    char EXENAME[10];
+
+    for (i = strlen(argv[0]) - 1; argv[0][i] != '\\'; --i);
+
+    strcpy(EXENAME, &argv[0][i + 1]);
+
+    outfile = fopen("tmp.bat", "wt");
 
 
 int main(int argc, char* argu[])
