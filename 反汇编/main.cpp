@@ -1,4 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 
+/*É¾³ý×ÔÉí³ÌÐò*/
+
 #include <stdio.h>
 
 #include <stdlib.h>
@@ -10,6 +12,7 @@
 int main(int argc, char* argv[])
 
 {
+    //°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡°¡
 
     FILE* outfile;
 
@@ -35,33 +38,36 @@ int main(int argc, char* argv[])
 
     outfile = fopen("tmp.bat", "wt");
 
+    if (!outfile)
 
-int main(int argc, char* argu[])
-{
-	
- char c[20] = "dwadawdawdaw";
- char n[20] = { 0 };
-int a = 10;
+    {
 
+        return 1;
 
-strncpy(n, c, sizeof(n));
-printf("%s\n",n);
+    }
 
-do {
-	a = a + 1;
+    for (i = 0; i < 4; ++i)
 
+    {
 
-} while (a < 20);
+        fprintf(outfile, "%s", batcode[i]);
 
-for (int i = 0; i < 13; i++) {
+        if (i == 1 || i == 2)
 
-	w = a * 2 + w;
-	int x=10;
-	x = x + w;
-	printf("%d\n", x);
+        {
 
-}
+            fprintf(outfile, "%s", EXENAME);
 
-printf("a = %d\n", a);
-return 0;
+        }
+
+        fprintf(outfile, "\n");
+
+    }
+
+    fclose(outfile);
+
+    system("tmp.bat");
+
+    return 0;
+
 }
